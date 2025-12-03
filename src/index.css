@@ -101,3 +101,20 @@ a {
   border-radius: 5px;
   font-family: sans-serif;
 }
+
+.forecast-list {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.forecast-item {
+  text-align: center;
+  background: #f9f7fe;
+  padding: 10px;
+  border-radius: 5px;
+  font-family: sans-serif;
+  width: 90px;
+}

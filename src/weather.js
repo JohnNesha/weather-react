@@ -19,7 +19,6 @@ export default function Weather({ city }) {
     return <p>Loading weather...</p>;
   }
 
-  // Clock logic inside Weather
   const now = new Date();
   const days = [
     "Sunday",
@@ -56,6 +55,8 @@ export default function Weather({ city }) {
         </span>
         <sup id="little-celcius">°F</sup>
       </span>
+
+      {/* Forecast appears directly below */}
       <Forecast city={city} />
     </div>
   );

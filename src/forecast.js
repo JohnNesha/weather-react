@@ -21,25 +21,35 @@ export default function Forecast({ city }) {
 
   return (
     <div className="forecast-container">
-      {forecast.map((day, index) => {
-        const date = new Date(day.time * 1000);
-        const weekdays = ["Sun", "Mon", "Tues", "Weds", "Thurs", "Fri", "Sat"];
-        const weekday = weekdays[date.getDay()];
+      <ul className="forecast-list">
+        {forecast.map((day, index) => {
+          const date = new Date(day.time * 1000);
+          const weekdays = [
+            "Sun",
+            "Mon",
+            "Tues",
+            "Weds",
+            "Thurs",
+            "Fri",
+            "Sat",
+          ];
+          const weekday = weekdays[date.getDay()];
 
-        return (
-          <li key={index}>
-            {weekday} <br />
-            <img
-              src={day.condition.icon_url}
-              alt={day.condition.description}
-              width="40"
-            />
-            <br />
-            <strong>{Math.round(day.temperature.minimum)}°F</strong> /{" "}
-            {Math.round(day.temperature.maximum)}°F
-          </li>
-        );
-      })}
+          return (
+            <li key={index} className="forecast-item">
+              {weekday} <br />
+              <img
+                src={day.condition.icon_url}
+                alt={day.condition.description}
+                width="40"
+              />
+              <br />
+              <strong>{Math.round(day.temperature.minimum)}°F</strong> /{" "}
+              {Math.round(day.temperature.maximum)}°F
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 }

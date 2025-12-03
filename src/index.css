@@ -16,6 +16,7 @@
 
 h1 {
   font-size: 2rem;
+  text-align: center;
 }
 
 .container {
@@ -62,11 +63,10 @@ footer {
 }
 
 .date-container {
-  position: relative;
-  top: 70px;
-  right: 190px;
+  text-align: center;
   color: gray;
   font-weight: 100;
+  margin-bottom: 20px;
 }
 
 #little-celcius {
@@ -102,12 +102,21 @@ a {
   font-family: sans-serif;
 }
 
+.forecast-block {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
 .forecast-list {
   display: flex;
+  flex-wrap: wrap;
   gap: 15px;
   list-style: none;
   padding: 0;
   margin: 0;
+  max-width: 100%;
+  justify-content: center;
 }
 
 .forecast-item {
@@ -117,4 +126,12 @@ a {
   border-radius: 5px;
   font-family: sans-serif;
   width: 90px;
+  box-sizing: border-box;
+}
+
+.weather-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
 }

@@ -36,7 +36,17 @@ export default function Weather({ city }) {
 
   return (
     <div className="weather-container">
-      <h2 id="current-city">{data.city}</h2>
+      <div className="weather-header">
+        <h2 id="current-city">{data.city}</h2>
+        <div className="main-temp">
+          <span className="sunshine">☀️</span>
+          <span id="city-current-temp">
+            {Math.round(data.temperature.current)}
+          </span>
+          <sup id="little-celcius">°F</sup>
+        </div>
+      </div>
+
       <div className="date-container">
         <p>
           <span id="time-update">{currentTime}</span>{" "}
@@ -48,15 +58,7 @@ export default function Weather({ city }) {
           <strong className="main-weather">{data.wind.speed} mph</strong>
         </p>
       </div>
-      <span className="main-temp">
-        <span className="sunshine">☀️</span>
-        <span id="city-current-temp">
-          {Math.round(data.temperature.current)}
-        </span>
-        <sup id="little-celcius">°F</sup>
-      </span>
 
-      {/* Forecast appears directly below */}
       <Forecast city={city} />
     </div>
   );

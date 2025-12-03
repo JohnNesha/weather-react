@@ -57,16 +57,18 @@ footer {
 
 .main-temp {
   font-size: 5rem;
-  font-family: sans-serif;
   font-weight: 700;
-  padding-top: 25px;
+  padding-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 .date-container {
-  text-align: center;
+  margin-top: 10px;
   color: gray;
   font-weight: 100;
-  margin-bottom: 20px;
 }
 
 #little-celcius {
@@ -134,4 +136,10 @@ a {
   flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
+}
+
+.weather-card {
+  text-align: center;
+  font-family: sans-serif;
+  padding: 20px;
 }

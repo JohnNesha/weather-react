@@ -20,7 +20,7 @@ export default function Forecast({ city }) {
   }
 
   return (
-    <div className="forecast-container">
+    <div className="forecast-block">
       <ul className="forecast-list">
         {forecast.map((day, index) => {
           const date = new Date(day.time * 1000);

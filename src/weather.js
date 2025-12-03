@@ -35,23 +35,23 @@ export default function Weather({ city }) {
   const currentTime = `${day} ${hours}:${minutes}`;
 
   return (
-    <div className="weather-container">
-      <div className="weather-header">
-        <h2 id="current-city">{data.city}</h2>
-        <div className="main-temp">
-          <span className="sunshine">☀️</span>
-          <span id="city-current-temp">
-            {Math.round(data.temperature.current)}
-          </span>
-          <sup id="little-celcius">°F</sup>
-        </div>
+    <div className="weather-card">
+      <h2 id="current-city">{data.city}</h2>
+
+      <div className="main-temp">
+        <span className="sunshine">☀️</span>
+        <span id="city-current-temp">
+          {Math.round(data.temperature.current)}
+        </span>
+        <sup id="little-celcius">°F</sup>
       </div>
 
       <div className="date-container">
         <p>
-          <span id="time-update">{currentTime}</span>{" "}
+          <span id="time-update">{currentTime}</span>,{" "}
           {data.condition.description}
-          <br />
+        </p>
+        <p>
           Humidity:{" "}
           <strong className="main-weather">{data.temperature.humidity}%</strong>
           , Wind:{" "}

@@ -1,7 +1,6 @@
 import React from "react";
 import "./index.css";
 import Search from "./search";
-import Clock from "./clock";
 
 function App() {
   return (
@@ -9,9 +8,8 @@ function App() {
       <div className="container">
         <header>
           <h1>Weather App</h1>
+          <Search />
         </header>
-        <Search />
-        <Clock />
         <footer>
           This project was coded by{" "}
           <a href="https://github.com/JohnNesha">JohnNesha Graves</a> and is on{" "}

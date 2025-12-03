@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Forecast from "./forecast";
 
 export default function Weather({ city }) {
   const [data, setData] = useState(null);
@@ -14,23 +15,48 @@ export default function Weather({ city }) {
     }
   }, [city]);
 
-  if (data) {
-    return <p>Loading weather....</p>;
+  if (!data) {
+    return <p>Loading weather...</p>;
   }
+
+  // Clock logic inside Weather
+  const now = new Date();
+  const days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  const day = days[now.getDay()];
+  const hours = now.getHours();
+  const minutes = now.getMinutes().toString().padStart(2, "0");
+  const currentTime = `${day} ${hours}:${minutes}`;
 
   return (
     <div className="weather-container">
-      <h2>{data.city}</h2>
-      <p>
-        {data.condition.description} <br />
-        Humidity: <strong>{data.temperature.humidity}%</strong>, Wind:{" "}
-        <strong>{data.wind.speed} mph</strong>
-      </p>
+      <h2 id="current-city">{data.city}</h2>
+      <div className="date-container">
+        <p>
+          <span id="time-update">{currentTime}</span>{" "}
+          {data.condition.description}
+          <br />
+          Humidity:{" "}
+          <strong className="main-weather">{data.temperature.humidity}%</strong>
+          , Wind:{" "}
+          <strong className="main-weather">{data.wind.speed} mph</strong>
+        </p>
+      </div>
       <span className="main-temp">
         <span className="sunshine">☀️</span>
-        <span>{Math.round(data.temperature.current)}</span>
-        <sup>°F</sup>
+        <span id="city-current-temp">
+          {Math.round(data.temperature.current)}
+        </span>
+        <sup id="little-celcius">°F</sup>
       </span>
+      <Forecast city={city} />
     </div>
   );
 }

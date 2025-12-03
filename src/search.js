@@ -16,22 +16,18 @@ export default function Search() {
     }
   }
 
-  function updateQuery(event) {
-    setQuery(event.target.value);
-  }
-
   return (
-    <div>
-      <form onSubmit={handleSearch}>
-        <input
-          type="search"
-          placeholder="Enter a city"
-          onChange={updateQuery}
-        />
-        <input type="submit" value="Search" />
-      </form>
+    <form id="city-form" onSubmit={handleSearch}>
+      <input
+        type="search"
+        id="search-input"
+        placeholder="Enter a city.."
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+      />
+      <input type="submit" value="Search" className="search-btn" />
       {message && <p>{message}</p>}
       {city && <Weather city={city} />}
-    </div>
+    </form>
   );
 }
